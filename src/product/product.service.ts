@@ -1,29 +1,28 @@
-import { Injectable } from '@nestjs/common';
-import { Product } from './product.model';
-
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { Product } from './Product.model';
 @Injectable()
-export class ProductService {
-  products: Product[] = [];
-  insertProduct(prod: Product) {
-    const prodId = new Date().toString();
-    const newProduct = new Product(prodId, prod.title, prod.desc, prod.price);
-    this.products.push(newProduct);
-    return prodId;
+export class Productservice {
+  private pproducts: Product[] = [];
+  insertpproduct(title: string, price: number, description: string) {
+    const probId = Math.random.toString();
+    const newproduct = new Product(
+      new Date().toString(),
+      title,
+      description,
+      price,
+    );
+    this.pproducts.push(newproduct);
+    return newproduct.id;
   }
-
-  findAll() {
-    return this.products[0].title;
+  getpproducts() {
+    return [...this.pproducts];
   }
+  getSinglepproduct(pproductId: String) {
+    const product = this.pproducts.find((prob) => prob.id === pproductId);
+    if (!product) {
+      throw new NotFoundException('Could not find product');
+    }
 
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
-  }
-
-  update(id: number, updateProductDto) {
-    return `This action updates a #${id} product`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} product`;
+    return { ...this.pproducts };
   }
 }
