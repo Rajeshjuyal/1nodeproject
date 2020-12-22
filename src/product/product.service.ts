@@ -3,16 +3,19 @@ import { Product } from './Product.model';
 @Injectable()
 export class Productservice {
   private pproducts: Product[] = [];
-  insertpproduct(title: string, price: number, description: string) {
-    const probId = Math.random.toString();
+   insertpproduct(prod: Product) {
+    const probId = Date.now.toString();
+    prod.id = '5';
+    console.log(prod);
     const newproduct = new Product(
-      new Date().toString(),
-      title,
-      description,
-      price,
+      prod.id,
+      prod.title,
+      prod.description,
+      prod.price,
     );
+    console.log(newproduct);
     this.pproducts.push(newproduct);
-    return newproduct.id;
+    return newproduct.title;
   }
   getpproducts() {
     return [...this.pproducts];

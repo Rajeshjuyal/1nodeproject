@@ -1,19 +1,13 @@
 import { Controller, Post, Body, Get } from '@nestjs/common';
 import { Productservice } from './Product.service';
+import { Product } from './Product.model';
 @Controller('/product')
 export class Productcontroller {
   constructor(private pproductservice: Productservice) {}
-  @Post()
-  addpproduct(
-    @Body('title') probTitle: string,
-    @Body('description') probDesc: string,
-    @Body('price') probPrice: number,
-  ): any {
-    const generatedId = this.pproductservice.insertpproduct(
-      probTitle,
-      probPrice,
-      probDesc,
-    );
+  @Post('')
+  public addpproduct(@Body() prod: Product): any {
+    console.log(prod);
+    const generatedId = this.pproductservice.insertpproduct(prod);
     return { id: generatedId };
   }
   @Get()
