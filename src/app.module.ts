@@ -11,8 +11,29 @@ import { CollageModule } from './collage/collage.module';
 import { ScoreModule } from './score/score.module';
 import { AttendenceModule } from './attendence/attendence.module';
 import { TimetableModule } from './timetable/timetable.module';
+import { FeesModule } from './fees/fees.module';
+import { LibraryModule } from './library/library.module';
+import { SettingModule } from './setting/setting.module';
+import { MongooseModule } from '@nestjs/mongoose';
 @Module({
-  imports: [ProductModule, TeacherModule, SubjectModule, ParentModule, StudentModule, CourseModule, CollageModule, ScoreModule, AttendenceModule, TimetableModule],
+  imports: [
+    MongooseModule.forRoot(
+      'mongodb+srv://Rajesh123:Rajesh123@cluster0.zelwy.mongodb.net/dummy?retryWrites=true&w=majority',
+    ),
+    ProductModule,
+    TeacherModule,
+    SubjectModule,
+    ParentModule,
+    StudentModule,
+    CourseModule,
+    CollageModule,
+    ScoreModule,
+    AttendenceModule,
+    TimetableModule,
+    FeesModule,
+    LibraryModule,
+    SettingModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

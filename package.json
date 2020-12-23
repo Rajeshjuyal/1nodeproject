@@ -10,5 +10,9 @@
     "raj"
   ],
   "author": "rajuu",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@nestjs/mongoose": "^7.2.0",
+    "mongoose": "^5.11.8"
+  }
 }

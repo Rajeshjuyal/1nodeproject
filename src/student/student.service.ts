@@ -15,11 +15,11 @@ export class StudentService {
       student.phone,
     );
     this.students.push(student1);
-    return 'student1';
+    return student1;
   }
 
   findAll() {
-    return `students`;
+    return [...this.students];
   }
 
   findOne(id: string) {
