@@ -1,15 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { Attendence } from './attendence.modle';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 @Injectable()
 export class AttendenceService {
   attendences: Attendence[] = [];
-  create(attendence: Attendence) {
-    var attendence1 = new Attendence(
-      attendence.id,
-      attendence.student,
-      attendence.teacher,
-    );
-    this.attendences.push(attendence1);
+  constructor(
+    @InjectModel('Attendance') private readonly attendanceModel: Model<any>,
+  ) {}
+  public async create(attendence: Attendence) {
+    var attendence1 = await this.attendanceModel.create(attendence);
+    console.log(attendence1);
     return attendence1;
   }
 

@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { AttendenceService } from './attendence.service';
 import { Attendence } from './attendence.modle';
 
@@ -8,6 +16,7 @@ export class AttendenceController {
 
   @Post()
   create(@Body() attendencebody: Attendence) {
+    console.log(attendencebody);
     return this.attendenceService.create(attendencebody);
   }
 
@@ -22,7 +31,7 @@ export class AttendenceController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() attendencebody:Attendence) {
+  update(@Param('id') id: string, @Body() attendencebody: Attendence) {
     return this.attendenceService.update(id, attendencebody);
   }
 
