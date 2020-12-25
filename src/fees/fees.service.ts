@@ -1,13 +1,16 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 
 import { Fees } from './fees.model';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class FeesService {
   feess: Fees[] = [];
-  create(fees: Fees) {
-    var fees1 = new Fees(fees.id, fees.student, fees.parent, fees.amount);
-    this.feess.push(fees1);
+  constructor(
+    @Inject(Fees) private readonly feesModule: Model<any>) {}
+  public async create(fees: Fees) {
+    var fees1 = await this.feesModule.create(Fees);
+    console.log(fees1);
     return fees1;
   }
 

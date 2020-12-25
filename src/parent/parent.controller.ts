@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ParentService } from './parent.service';
 import { Parent } from './parent.model';
 
@@ -7,7 +15,7 @@ export class ParentController {
   constructor(private readonly parentService: ParentService) {}
 
   @Post()
-  create(@Body() parentdata:Parent) {
+  create(@Body() parentdata: Parent) {
     return this.parentService.create(parentdata);
   }
 

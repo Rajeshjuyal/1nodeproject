@@ -1,6 +1,14 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { CollageService } from './collage.service';
-import{Collage} from './collage.model';
+import { Collage } from './collage.model';
 
 @Controller('collage')
 export class CollageController {
@@ -8,7 +16,9 @@ export class CollageController {
 
   @Post()
   create(@Body() collagedata: Collage) {
+    console.log(collagedata);
     return this.collageService.create(collagedata);
+    
   }
 
   @Get()

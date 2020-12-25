@@ -1,18 +1,18 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Collage } from './collage.model';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class CollageService {
   collages: Collage[] = [];
-  create(collage: Collage) {
-    var collage1 = new Collage(
-      collage.id,
-      collage.name,
-      collage.location,
-      collage.branch,
-    );
-    this.collages.push(collage1);
-    return 'collage1';
+  constructor(
+    @Inject('Collage') private readonly collageModel: Model<any>,
+  ) {}
+  public async create(collage: Collage){
+
+ var collage1 = await this.collageModel.create(collage);
+    console.log(collage1);
+    return collage1;
   }
 
   findAll() {

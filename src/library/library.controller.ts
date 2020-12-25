@@ -9,14 +9,14 @@ import {
 } from '@nestjs/common';
 import { LibraryService } from './library.service';
 
-import { Library } from './library.model';
+import { library } from './library.model';
 
 @Controller('library')
 export class LibraryController {
   constructor(private readonly libraryService: LibraryService) {}
 
   @Post()
-  create(@Body() librarydata: Library) {
+  create(@Body() librarydata: library) {
     return this.libraryService.create(librarydata);
   }
 
@@ -31,7 +31,7 @@ export class LibraryController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() libaraydata: Library) {
+  update(@Param('id') id: string, @Body() libaraydata: library) {
     return this.libraryService.update(id, libaraydata);
   }
 

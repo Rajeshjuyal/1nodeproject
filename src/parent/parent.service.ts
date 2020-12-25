@@ -1,20 +1,18 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Parent } from './parent.model';
+import { ParentModule } from './parent.module';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class ParentService {
   parents: Parent[] = [];
-  create(parent: Parent) {
-    var parent1 = new Parent(
-      parent.id,
-      parent.name,
-      parent.photo,
-      parent.username,
-      parent.email,
-      parent.password,
-      parent.phone,
-    );
-    this.parents.push(parent);
+  constructor(
+    @Inject(ParentModule) private readonly libraryModel: Model<any>,
+  ) {}
+
+  public async create(parent: Parent) {
+    var parent1 = await this.parentModle.create(parent);
+    console.log(parent1);
     return parent1;
   }
 
