@@ -1,13 +1,16 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Score } from './score.model';
+import { Model } from 'mongoose';
+import { ScoreModule } from './score.module';
 
 @Injectable()
 export class ScoreService {
   scores: Score[] = [];
+  constructor(@Inject(ScoreModule) private readonly scoreModel: Model<any>) {}
 
-  create(score: Score) {
-    var score1 = new Score(score.id, score.subject, score.student, score.marks);
-    this.scores.push(score1);
+  public async create(score: Score) {
+    var score1 = await this.scoreModel.create(score);
+    console.log(score1);
     return score1;
   }
 

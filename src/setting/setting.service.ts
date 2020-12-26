@@ -1,22 +1,16 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Setting } from './setting.model';
+import { SettingModule } from './setting.module';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class SettingService {
   settings: Setting[] = [];
-  create(setting: Setting) {
-    var setting1 = new Setting(
-      setting.id,
-      setting.name,
-      setting.logo,
-      setting.address,
-      setting.contact,
-      setting.email,
-      setting.about,
-      setting.primary,
-      setting.secondary,
-    );
-    this.settings.push(setting1);
+  constructor(@Inject(SettingModule) private readonly scoreModel: Model<any>) {}
+
+  public async create(setting: Setting) {
+    var setting1 = await this.scoreModel.create(setting);
+    console.log(setting1);
     return setting1;
   }
 

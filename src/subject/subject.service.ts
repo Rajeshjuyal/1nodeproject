@@ -1,17 +1,19 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Subject } from './subject.model';
+
+import { Model } from 'mongoose';
+import { SubjectModule } from './subject.module';
 
 @Injectable()
 export class SubjectService {
   subjects: Subject[] = [];
-  create(subject: Subject) {
-    var subject1 = new Subject(
-      subject.id,
-      subject.name,
-      subject.department,
-      subject.code,
-    );
-    this.subjects.push(subject1);
+  constructor(
+    @Inject(SubjectModule) private readonly subjectModel: Model<any>,
+  ) {}
+
+  public async create(subject: Subject) {
+    var subject1 = await this.subjectModel.create(subject);
+    console.log(subject1);
     return subject1;
   }
 

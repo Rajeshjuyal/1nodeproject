@@ -6,12 +6,10 @@ import { Model } from 'mongoose';
 @Injectable()
 export class ParentService {
   parents: Parent[] = [];
-  constructor(
-    @Inject(ParentModule) private readonly libraryModel: Model<any>,
-  ) {}
+  constructor(@Inject(ParentModule) private readonly parentModel: Model<any>) {}
 
   public async create(parent: Parent) {
-    var parent1 = await this.parentModle.create(parent);
+    var parent1 = await this.parentModel.create(parent);
     console.log(parent1);
     return parent1;
   }

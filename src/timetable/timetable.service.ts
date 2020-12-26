@@ -1,21 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Timetable } from './timetable.model';
+import { TimetableModule } from './timetable.module';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class TimetableService {
   timetables: Timetable[] = [];
-  create(timetable: Timetable) {
-    var timetable1 = new Timetable(
-      timetable.day,
-      timetable.period1,
-      timetable.period2,
-      timetable.period3,
-      timetable.period4,
-      timetable.period5,
-      timetable.period6,
-      timetable.period7,
-    );
-    this.timetables.push(timetable1);
+  constructor(
+    @Inject(TimetableModule) private readonly teacherModel: Model<any>,
+  ) {}
+  public async create(timetable: Timetable) {
+    var timetable1 = await this.teacherModel.create(timetable);
+    console.log(timetable1);
     return timetable1;
   }
 

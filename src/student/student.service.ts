@@ -1,20 +1,16 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Student } from './student.model';
+import { StudentModule } from './student.module';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class StudentService {
   students: Student[] = [];
-  create(student: Student) {
-    var student1 = new Student(
-      student.id,
-      student.name,
-      student.photo,
-      student.username,
-      student.email,
-      student.password,
-      student.phone,
-    );
-    this.students.push(student1);
+  constructor(@Inject(StudentModule) private readonly scoreModel: Model<any>) {}
+
+  public async create(student: Student) {
+    var student1 = await this.scoreModel.create(student);
+    console.log(student1);
     return student1;
   }
 

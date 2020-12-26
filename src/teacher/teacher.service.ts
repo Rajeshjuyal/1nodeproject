@@ -1,19 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Teacher } from './teacher.model';
+import { TeacherModule } from './teacher.module';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class TeacherService {
   teachers: Teacher[] = [];
-  create(teacher: Teacher) {
-    var teacher1 = new Teacher(
-      teacher.id,
-      teacher.name,
-      teacher.designation,
-      teacher.department,
-      teacher.salary,
-      teacher.subjects,
-    );
-    this.teachers.push(teacher1);
+  constructor(
+    @Inject(TeacherModule) private readonly teacherModel: Model<any>,
+  ) {}
+  public async create(teacher: Teacher) {
+    var teacher1 = await this.teacherModel.create(teacher);
+    console.log(teacher1);
     return teacher1;
   }
 
