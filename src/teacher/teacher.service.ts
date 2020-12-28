@@ -1,13 +1,13 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Teacher } from './teacher.model';
-import { TeacherModule } from './teacher.module';
 import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class TeacherService {
   teachers: Teacher[] = [];
   constructor(
-    @Inject(TeacherModule) private readonly teacherModel: Model<any>,
+    @InjectModel('Teacher') private readonly teacherModel: Model<any>,
   ) {}
   public async create(teacher: Teacher) {
     var teacher1 = await this.teacherModel.create(teacher);
@@ -15,8 +15,9 @@ export class TeacherService {
     return teacher1;
   }
 
-  findAll() {
-    return [...this.teachers];
+  public async findAll() {
+    var teachers = await this.teacherModel.find();
+    return [...teachers];
   }
 
   findOne(id: string) {

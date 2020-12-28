@@ -1,12 +1,15 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Setting } from './setting.model';
-import { SettingModule } from './setting.module';
+
 import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class SettingService {
   settings: Setting[] = [];
-  constructor(@Inject(SettingModule) private readonly scoreModel: Model<any>) {}
+  constructor(
+    @InjectModel('Setting') private readonly scoreModel: Model<any>,
+  ) {}
 
   public async create(setting: Setting) {
     var setting1 = await this.scoreModel.create(setting);
@@ -14,8 +17,10 @@ export class SettingService {
     return setting1;
   }
 
-  findAll() {
-    return [...this.settings];
+  public async findAll() {
+    var settings = await this.scoreModel.find();
+
+    return [...settings];
   }
 
   findOne(id: string) {

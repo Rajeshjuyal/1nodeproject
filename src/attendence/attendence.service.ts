@@ -9,13 +9,15 @@ export class AttendenceService {
     @InjectModel('Attendance') private readonly attendanceModel: Model<any>,
   ) {}
   public async create(attendence: Attendence) {
+    console.log('In function');
     var attendence1 = await this.attendanceModel.create(attendence);
     console.log(attendence1);
     return attendence1;
   }
 
-  findAll() {
-    return [...this.attendences];
+  public async findAll() {
+    var attendences = await this.attendanceModel.find();
+    return [...attendences];
   }
 
   findOne(id: string) {

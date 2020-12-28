@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose';
-export const ScoreSchema = new mongoose.Schema({
+export const SettingSchema = new mongoose.Schema({
   id: { type: String, required: true },
   name: { type: String, required: true },
   logo: { type: Number, required: true },
@@ -8,7 +8,7 @@ export const ScoreSchema = new mongoose.Schema({
   email: { type: String, required: true },
   about: { type: Number, required: true },
   primary: { type: Number, required: true },
-  secondary: { type: Number, required: true },
+  secondary: { type: String, required: true },
 });
 
 export class Setting {

@@ -1,9 +1,9 @@
 import * as mongoose from 'mongoose';
-export const AttendanceSchema = new mongoose.Schema({
+export const CollageSchema = new mongoose.Schema({
   id: { type: String, required: true },
-  student: { type: String, required: true },
-  location: { type: Number, required: true },
-  branch: { type: Number, required: true },
+  name: { type: String, required: true },
+  location: { type: String, required: true },
+  branch: { type: String, required: true },
 });
 export interface Collage {
   id: string;

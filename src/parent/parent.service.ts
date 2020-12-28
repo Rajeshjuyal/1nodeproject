@@ -2,11 +2,14 @@ import { Injectable, Inject } from '@nestjs/common';
 import { Parent } from './parent.model';
 import { ParentModule } from './parent.module';
 import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class ParentService {
   parents: Parent[] = [];
-  constructor(@Inject(ParentModule) private readonly parentModel: Model<any>) {}
+  constructor(
+    @InjectModel('Parent') private readonly parentModel: Model<any>,
+  ) {}
 
   public async create(parent: Parent) {
     var parent1 = await this.parentModel.create(parent);
@@ -14,8 +17,9 @@ export class ParentService {
     return parent1;
   }
 
-  findAll() {
-    return [...this.parents];
+  public async findAll() {
+    var parents = await this.parentModel.find();
+    return [...parents];
   }
 
   findOne(id: string) {

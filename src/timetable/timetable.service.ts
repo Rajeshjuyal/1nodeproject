@@ -1,13 +1,14 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Timetable } from './timetable.model';
-import { TimetableModule } from './timetable.module';
+
 import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class TimetableService {
   timetables: Timetable[] = [];
   constructor(
-    @Inject(TimetableModule) private readonly teacherModel: Model<any>,
+    @InjectModel('Timetable') private readonly teacherModel: Model<any>,
   ) {}
   public async create(timetable: Timetable) {
     var timetable1 = await this.teacherModel.create(timetable);
@@ -15,8 +16,9 @@ export class TimetableService {
     return timetable1;
   }
 
-  findAll() {
-    return [...this.timetables];
+  public async findAll() {
+    var timetables = await this.teacherModel.find();
+    return [...timetables];
   }
 
   findOne(id: string) {

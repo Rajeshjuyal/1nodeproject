@@ -2,20 +2,23 @@ import { Injectable, Inject } from '@nestjs/common';
 
 import { Fees } from './fees.model';
 import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class FeesService {
   feess: Fees[] = [];
-  constructor(
-    @Inject(Fees) private readonly feesModule: Model<any>) {}
+  constructor(@InjectModel('Fees') private readonly feesModel: Model<any>) {}
   public async create(fees: Fees) {
-    var fees1 = await this.feesModule.create(Fees);
+    console.log('In function');
+
+    var fees1 = await this.feesModel.create(fees);
     console.log(fees1);
     return fees1;
   }
 
-  findAll() {
-    return [...this.feess];
+  public async findAll() {
+    var feess = await this.feesModel.find();
+    return [...feess];
   }
 
   findOne(id: string) {

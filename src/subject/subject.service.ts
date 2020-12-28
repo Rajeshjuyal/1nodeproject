@@ -3,12 +3,13 @@ import { Subject } from './subject.model';
 
 import { Model } from 'mongoose';
 import { SubjectModule } from './subject.module';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class SubjectService {
   subjects: Subject[] = [];
   constructor(
-    @Inject(SubjectModule) private readonly subjectModel: Model<any>,
+    @InjectModel('Subject') private readonly subjectModel: Model<any>,
   ) {}
 
   public async create(subject: Subject) {
@@ -17,8 +18,9 @@ export class SubjectService {
     return subject1;
   }
 
-  findAll() {
-    return [...this.subjects];
+  public async findAll() {
+    var subjects = await this.subjectModel.find();
+    return [...subjects];
   }
 
   findOne(id: string) {

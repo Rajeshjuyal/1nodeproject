@@ -1,14 +1,14 @@
 import * as mongoose from 'mongoose';
-export const CourseSchema = new mongoose.Schema({
+export const FeesSchema = new mongoose.Schema({
   id: { type: String, required: true },
-  student: { type: String, required: true },
-  parent: { type: Number, required: true },
+  sid: { type: String, required: true },
+  pid: { type: Number, required: true },
   amount: { type: Number, required: true },
 });
 
 export interface Fees {
   id: string;
-  student: string;
-  parent: string;
+  sid: string;
+  pid: string;
   amount: string;
 }

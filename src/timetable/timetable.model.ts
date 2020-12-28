@@ -1,22 +1,21 @@
- import * as mongoose from 'mongoose';
- export const ScoreSchema = new mongoose.Schema({
-   id: { type: String, required: true },
-   name: { type: String, required: true },
-   designation: { type: Number, required: true },
-   department: { type: Number, required: true },
-   salary: { type: Number, required: true },
-   subjects: { type: Number, required: true },
- });
+import * as mongoose from 'mongoose';
+export const TimetableSchema = new mongoose.Schema({
+  day: { type: String, required: true },
+  period1: { type: String, required: true },
+  period2: { type: String, required: true },
+  period3: { type: String, required: true },
+  period4: { type: String, required: true },
+  period5: { type: String, required: true },
+  period6: { type: String, required: true },
+});
 
-
-export interface Timetable{
-  
-     day:string,
-    period1:string,
-    period2:string,
-    period3:string,
-    period4:string,
-   period5:string,
-    period6:string,
-    period7:string,
+export interface Timetable {
+  day: string;
+  period1: string;
+  period2: string;
+  period3: string;
+  period4: string;
+  period5: string;
+  period6: string;
+  period7: string;
 }

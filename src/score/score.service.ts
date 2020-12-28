@@ -2,11 +2,12 @@ import { Injectable, Inject } from '@nestjs/common';
 import { Score } from './score.model';
 import { Model } from 'mongoose';
 import { ScoreModule } from './score.module';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class ScoreService {
-  scores: Score[] = [];
-  constructor(@Inject(ScoreModule) private readonly scoreModel: Model<any>) {}
+  scoress: Score[] = [];
+  constructor(@InjectModel('Score') private readonly scoreModel: Model<any>) {}
 
   public async create(score: Score) {
     var score1 = await this.scoreModel.create(score);
@@ -14,8 +15,9 @@ export class ScoreService {
     return score1;
   }
 
-  findAll() {
-    return [...this.scores];
+  public async findAll() {
+    var scoress = await this.scoreModel.find();
+    return [...scoress];
   }
 
   findOne(id: string) {

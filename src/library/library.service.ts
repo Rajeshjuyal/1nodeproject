@@ -2,12 +2,13 @@ import { Injectable, Inject } from '@nestjs/common';
 import { library } from './library.model';
 import { Model } from 'mongoose';
 import { LibraryModule } from './library.module';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class LibraryService {
   librarys: library[] = [];
   constructor(
-    @Inject(LibraryModule) private readonly libraryModel: Model<any>,
+    @InjectModel('Library') private readonly libraryModel: Model<any>,
   ) {}
 
   public async create(library: library) {
@@ -16,8 +17,9 @@ export class LibraryService {
     return library1;
   }
 
-  findAll() {
-    return [...this.librarys];
+  public async findAll() {
+    var librarys = await this.libraryModel.find();
+    return [...librarys];
   }
 
   findOne(id: string) {
