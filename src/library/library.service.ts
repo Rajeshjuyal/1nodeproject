@@ -22,15 +22,19 @@ export class LibraryService {
     return [...librarys];
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} library`;
+  public async findOne(id: string) {
+    var library = await this.libraryModel.findById(id);
+    return library;
   }
 
-  update(id: string, librarydata: library) {
-    return `This action updates a #${id} library`;
+  public async update(id: string, librarydata: library) {
+    var library = await this.libraryModel.findByIdAndUpdate(id, librarydata);
+    return library;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} library`;
+  public async remove(id: string) {
+    var library = await this.libraryModel.findByIdAndDelete(id);
+    library.remove();
+    return library;
   }
 }

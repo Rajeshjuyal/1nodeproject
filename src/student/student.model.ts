@@ -3,8 +3,8 @@ export const StudentSchema = new mongoose.Schema({
   id: { type: String, required: true },
   Registration: { type: String, required: true },
   DOB: { type: String, required: true },
-  Name: { type: Number, required: true },
-  Mothername: { type: Number, required: true },
+  Name: { type: String, required: true },
+  Mothername: { type: String, required: true },
   Fathername: { type: String, required: true },
   phoneno: { type: String, required: true },
 });

@@ -20,15 +20,19 @@ export class ScoreService {
     return [...scoress];
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} score`;
+  public async findOne(id: string) {
+    var score = await this.scoreModel.findById(id);
+    return score;
   }
 
-  update(id: string, scoredata: Score) {
-    return `This action updates a #${id} score`;
+  public async update(id: string, scoredata: Score) {
+    var score = await this.scoreModel.findByIdAndUpdate(id, scoredata);
+    return score;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} score`;
+  public async remove(id: string) {
+    var score = await this.scoreModel.findByIdAndDelete(id);
+    score.remove();
+    return score;
   }
 }

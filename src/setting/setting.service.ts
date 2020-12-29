@@ -23,15 +23,19 @@ export class SettingService {
     return [...settings];
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} setting`;
+  public async findOne(id: string) {
+    var setting = await this.scoreModel.findById(id);
+    return setting;
   }
 
-  update(id: string, settingdata: Setting) {
-    return `this action updates a #${id} setting`;
+  public async update(id: string, settingdata: Setting) {
+    var setting = await this.scoreModel.findByIdAndUpdate(id, settingdata);
+    return setting;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} setting`;
+  public async remove(id: string) {
+    var setting = await this.scoreModel.findByIdAndDelete(id);
+    setting.remove();
+    return setting;
   }
 }

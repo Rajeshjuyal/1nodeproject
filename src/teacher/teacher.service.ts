@@ -20,15 +20,19 @@ export class TeacherService {
     return [...teachers];
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} teacher`;
+  public async findOne(id: string) {
+    var teacher = await this.teacherModel.findById(id);
+    return teacher;
   }
 
-  update(id: string, teacherdata: Teacher) {
-    return `This action updates a #${id} teacher`;
+  public async update(id: string, teacherdata: Teacher) {
+    var teacher = await this.teacherModel.findByIdAndUpdate(id, teacherdata);
+    return teacher;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} teacher`;
+  public async remove(id: string) {
+    var teacher = await this.teacherModel.findByIdAndDelete(id);
+    teacher.remove();
+    return teacher;
   }
 }

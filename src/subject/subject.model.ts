@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 export const SubjectSchema = new mongoose.Schema({
   id: { type: String, required: true },
   name: { type: String, required: true },
-  department: { type: Number, required: true },
+  department: { type: String, required: true },
   code: { type: String, required: true },
 });
 

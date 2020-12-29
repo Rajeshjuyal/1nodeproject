@@ -21,15 +21,22 @@ export class TimetableService {
     return [...timetables];
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} timetable`;
+  public async findOne(id: string) {
+    var timetable = await this.teacherModel.findById(id);
+
+    return timetable;
   }
 
-  update(id: string, timetabledata: Timetable) {
-    return `This action updates a #${id} timetable`;
+  public async update(id: string, timetabledata: Timetable) {
+    var timetable = await this.teacherModel.findByIdAndUpdate(
+      id,
+      timetabledata,
+    );
+    return timetable;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} timetable`;
+  public async remove(id: string) {
+    var timetable = await this.teacherModel.findByIdAndDelete(id);
+    return timetable;
   }
 }

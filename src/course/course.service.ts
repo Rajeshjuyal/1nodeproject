@@ -23,15 +23,19 @@ export class CourseService {
     return [...courses];
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} course`;
+  public async findOne(id: string) {
+    var course = await this.courseModel.findById(id);
+    return course;
   }
 
-  update(id: string, coursedata: Course) {
-    return `This action updates a #${id} course`;
+  public async update(id: string, coursedata: Course) {
+    var course = await this.courseModel.findByIdAndUpdate(id, coursedata);
+    return course;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} course`;
+  public async remove(id: string) {
+    var course = await this.courseModel.findByIdAndDelete(id);
+    course.remove();
+    return course;
   }
 }

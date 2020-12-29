@@ -22,15 +22,19 @@ export class StudentService {
     return [...students];
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} student`;
+  public async findOne(id: string) {
+    var student = await this.studentModel.findById(id);
+    return student;
   }
 
-  update(id: string, studentdata: Student) {
-    return `This action updates a #${id} student`;
+  public async update(id: string, studentdata: Student) {
+    var student = this.studentModel.findByIdAndUpdate(id, studentdata);
+    return student;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} student`;
+  public async remove(id: string) {
+    var student = await this.studentModel.findById(id);
+    student.remove();
+    return student;
   }
 }

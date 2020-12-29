@@ -23,15 +23,20 @@ export class SubjectService {
     return [...subjects];
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} subject`;
+  public async findOne(id: string) {
+    var subject = await this.subjectModel.findById(id);
+
+    return subject;
   }
 
-  update(id: string, subjectdata: Subject) {
-    return `This action updates a #${id} subject`;
+  public async update(id: string, subjectdata: Subject) {
+    var subject = await this.subjectModel.findByIdAndUpdate(id, subjectdata);
+    return subject;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} subject`;
+  public async remove(id: string) {
+    var subject = await this.subjectModel.findByIdAndDelete(id);
+    subject.remove();
+    return subject;
   }
 }

@@ -20,15 +20,22 @@ export class AttendenceService {
     return [...attendences];
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} attendence`;
+  public async findOne(id: string) {
+    var attendence = await this.attendanceModel.findById(id);
+    return attendence;
   }
 
-  update(id: string, attendencedata: Attendence) {
-    return `This action updates a #${id} attendence`;
+  public async update(id: string, attendencedata: Attendence) {
+    var attendence = await this.attendanceModel.findByIdAndUpdate(
+      id,
+      attendencedata,
+    );
+    return attendence;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} attendence`;
+  public async remove(id: string) {
+    var attendence = await this.attendanceModel.findByIdAndDelete(id);
+    attendence.remove();
+    return attendence;
   }
 }

@@ -20,15 +20,19 @@ export class CollageService {
     return [...collages];
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} collage`;
+  public async findOne(id: string) {
+    var collage = await this.collageModel.findById(id);
+    return collage;
   }
 
-  update(id: string, collagedata: Collage) {
-    return `This action updates a #${id} collage`;
+  public async update(id: string, collagedata: Collage) {
+    var collage = await this.collageModel.findByIdAndUpdate(id, collagedata);
+    return collage;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} collage`;
+  public async remove(id: string) {
+    var collage = await this.collageModel.findByIdAndDelete(id);
+    collage.remove();
+    return collage;
   }
 }

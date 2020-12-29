@@ -15,6 +15,8 @@ import { FeesModule } from './fees/fees.module';
 import { LibraryModule } from './library/library.module';
 import { SettingModule } from './setting/setting.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { FamilyModule } from './family/family.module';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     MongooseModule.forRootAsync({
@@ -39,6 +41,8 @@ import { MongooseModule } from '@nestjs/mongoose';
     FeesModule,
     LibraryModule,
     SettingModule,
+    FamilyModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

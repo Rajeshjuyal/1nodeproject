@@ -21,15 +21,19 @@ export class FeesService {
     return [...feess];
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} fee`;
+  public async findOne(id: string) {
+    var fees = await this.feesModel.findById(id);
+    return fees;
   }
 
-  update(id: string, feedata: Fees) {
-    return `This action updates a #${id} fee`;
+  public async update(id: string, feedata: Fees) {
+    var fees = await this.feesModel.findByIdAndUpdate(id, feedata);
+    return fees;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} fee`;
+  public async remove(id: string) {
+    var fees = await this.feesModel.findByIdAndDelete(id);
+    fees.remove();
+    return fees;
   }
 }
