@@ -1,29 +1,39 @@
 import { Injectable } from '@nestjs/common';
 
 import { Family } from './family.model';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model, model } from 'mongoose';
 
 @Injectable()
 export class FamilyService {
-  familys: Family[] = [];
-  create(family: Family) {
-    var family1 = {};
-    this.familys.push(family1);
+  family: Family[] = [];
+  constructor(
+    @InjectModel('Family') private readonly familyModel: Model<any>,
+  ) {}
+  public async create(familys: Family) {
+    var family1 = await this.familyModel.create(familys);
+    console.log(family1);
     return family1;
   }
 
-  findAll() {
-    return [...this.familys];
+  public async findAll() {
+    var family = await this.familyModel.find();
+    return [...family];
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} family`;
+  public async findOne(id: string) {
+    var family = await this.familyModel.findById(id);
+    return family;
   }
 
-  update(id: string, familydata: Family) {
-    return `This action updates a #${id} family`;
+  public async update(id: string, familydata: Family) {
+    var family = await this.familyModel.findByIdAndUpdate(id, familydata);
+    return family;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} family`;
+  public async remove(id: string) {
+    var family = await this.familyModel.findByIdAndDelete(id);
+    family.remove();
+    return family;
   }
 }
