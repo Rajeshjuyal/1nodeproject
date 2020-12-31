@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { ProductModule } from './Product/Product.module';
 import { TeacherModule } from './teacher/teacher.module';
 import { SubjectModule } from './subject/subject.module';
-import { ParentModule } from './parent/parent.module';
+
 import { StudentModule } from './student/student.module';
 import { CourseModule } from './course/course.module';
 import { CollageModule } from './collage/collage.module';
@@ -15,11 +15,13 @@ import { FeesModule } from './fees/fees.module';
 import { LibraryModule } from './library/library.module';
 import { SettingModule } from './setting/setting.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { FamilyModule } from './family/family.module';
-import { AuthModule } from './auth/auth.module';
-import { UserModule } from './user/user.module';
-import { ServiceModule } from './service/service.module';
-import { AuthModule } from './auth/auth.module';
+
+import { TopicModule } from './topic/topic.module';
+
+import { ChaptersModule } from './chapters/chapters.module';
+import { UnitModule } from './unit/unit.module';
+import { SyllabusModule } from './syllabus/syllabus.module';
+
 @Module({
   imports: [
     MongooseModule.forRootAsync({
@@ -35,7 +37,7 @@ import { AuthModule } from './auth/auth.module';
     ProductModule,
     TeacherModule,
     SubjectModule,
-    ParentModule,
+
     StudentModule,
     CourseModule,
     CollageModule,
@@ -44,10 +46,14 @@ import { AuthModule } from './auth/auth.module';
     FeesModule,
     LibraryModule,
     SettingModule,
-    FamilyModule,
-    AuthModule,
-    ServiceModule,
-    UserModule,
+
+    TopicModule,
+
+    ChaptersModule,
+
+    UnitModule,
+
+    SyllabusModule,
   ],
   controllers: [AppController],
   providers: [AppService],
