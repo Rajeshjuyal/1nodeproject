@@ -15,12 +15,18 @@ import { FeesModule } from './fees/fees.module';
 import { LibraryModule } from './library/library.module';
 import { SettingModule } from './setting/setting.module';
 import { MongooseModule } from '@nestjs/mongoose';
-
 import { TopicModule } from './topic/topic.module';
-
 import { ChaptersModule } from './chapters/chapters.module';
 import { UnitModule } from './unit/unit.module';
 import { SyllabusModule } from './syllabus/syllabus.module';
+
+import { TestsModule } from './tests/tests.module';
+
+import { AssignemntModule } from './assignment/assignemnt.module';
+import { ClassModule } from './class/class.module';
+import { TodayclassModule } from './todayclass/todayclass.module';
+import { PerformanceModule } from './performance/performance.module';
+import { ReportcardModule } from './reportcard/reportcard.module';
 
 @Module({
   imports: [
@@ -54,6 +60,18 @@ import { SyllabusModule } from './syllabus/syllabus.module';
     UnitModule,
 
     SyllabusModule,
+
+    TestsModule,
+
+    AssignemntModule,
+
+    ClassModule,
+
+    TodayclassModule,
+
+    PerformanceModule,
+
+    ReportcardModule,
   ],
   controllers: [AppController],
   providers: [AppService],
