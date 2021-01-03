@@ -19,14 +19,13 @@ import { TopicModule } from './topic/topic.module';
 import { ChaptersModule } from './chapters/chapters.module';
 import { UnitModule } from './unit/unit.module';
 import { SyllabusModule } from './syllabus/syllabus.module';
-
 import { TestsModule } from './tests/tests.module';
-
 import { AssignemntModule } from './assignment/assignemnt.module';
 import { ClassModule } from './class/class.module';
 import { TodayclassModule } from './todayclass/todayclass.module';
 import { PerformanceModule } from './performance/performance.module';
 import { ReportcardModule } from './reportcard/reportcard.module';
+import { ParentModule } from './parent/parent.module';
 
 @Module({
   imports: [
@@ -72,6 +71,8 @@ import { ReportcardModule } from './reportcard/reportcard.module';
     PerformanceModule,
 
     ReportcardModule,
+
+    ParentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
