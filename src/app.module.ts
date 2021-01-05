@@ -26,8 +26,11 @@ import { TodayclassModule } from './todayclass/todayclass.module';
 import { PerformanceModule } from './performance/performance.module';
 import { ReportcardModule } from './reportcard/reportcard.module';
 import { ParentModule } from './parent/parent.module';
-import { AuthModule } from './auth/auth.module';
+import { BannerModule } from './banner/banner.module';
+import { PostModule } from './post/post.module';
 import { UserModule } from './user/user.module';
+// import { ControllerModule } from './controller/controller.module';
+;
 
 @Module({
   imports: [
@@ -76,9 +79,15 @@ import { UserModule } from './user/user.module';
 
     ParentModule,
 
-    AuthModule,
+    BannerModule,
+
+    PostModule,
 
     UserModule,
+
+    
+
+    
   ],
   controllers: [AppController],
   providers: [AppService],

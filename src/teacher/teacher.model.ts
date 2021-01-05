@@ -4,11 +4,13 @@ export const TeacherSchema = new mongoose.Schema({
   t_name: { type: String, required: true },
   t_email: { type: String, required: true },
   t_contact: { type: String, required: true },
-  t_designation: { type: String, required: true },
-  t_joiningdate: { type: String, required: true },
-  t_gender: { type: String, required: true },
-  t_jobrole: { type: String, required: true },
-  t_salary: { type: String, required: true },
+  t_designation: { type: String, required: false },
+  t_joiningdate: { type: String, required: false },
+  t_gender: { type: String, required: false },
+  t_jobrole: { type: String, required: false },
+  t_salary: { type: String, required: false },
+  t_password: { type: String, required: true },
+  role: { type: String, required: true },
 });
 
 export interface Teacher {
@@ -17,5 +19,6 @@ export interface Teacher {
   designation: string;
   department: string;
   salary: string;
-  vid: string;
+  email: string;
+  role: string;
 }
