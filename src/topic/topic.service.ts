@@ -26,6 +26,10 @@ export class TopicService {
     var topics = await this.topicModel.findById(id);
     return topics;
   }
+  public async findchapter(id: string) {
+    var topics = await this.topicModel.find({ chapter: id });
+    return topics;
+  }
 
   public async update(id: string, topicdata: Topic) {
     var topics = await this.topicModel.findByIdAndUpdate(id, topicdata);

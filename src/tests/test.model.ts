@@ -6,10 +6,16 @@ export const TestSchema = new mongoose.Schema({
   option3: { type: String, required: true },
   option4: { type: String, required: true },
   answer: { type: String, required: true },
+  assignment: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Assignment',
+    required: 'true',
+  },
 });
 
 export interface Test {
-  question:string;
+  assignment: string;
+  question: string;
   option1: string;
   option2: string;
   option3: string;

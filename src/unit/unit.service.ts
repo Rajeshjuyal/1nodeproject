@@ -12,8 +12,7 @@ export class UnitService {
     @InjectModel('Syllabus') private readonly syllabus: Model<any>,
   ) {}
 
-  public async create(syllabus: SyllabusDto, unit: Unit) {
-    unit.syllabus = syllabus._id;
+  public async create(unit: Unit) {
     var unit1 = await this.unitModel.create(unit);
     console.log(unit1);
     return unit1;
@@ -26,6 +25,10 @@ export class UnitService {
 
   public async findOne(id: string) {
     var units = await this.unitModel.findById(id);
+    return units;
+  }
+  public async findSyllabus(id: string) {
+    var units = await this.unitModel.find({ syllabus: id });
     return units;
   }
 

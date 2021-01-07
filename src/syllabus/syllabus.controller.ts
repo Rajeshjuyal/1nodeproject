@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { SyllabusService } from './syllabus.service';
 import { Syllabus } from './syllabus.model';
 
@@ -19,6 +27,10 @@ export class SyllabusController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.syllabusService.findOne(id);
+  }
+  @Get('bysubject/:id')
+  findSubjectid(@Param('id') id: string) {
+    return this.syllabusService.findSubject(id);
   }
 
   @Put(':id')

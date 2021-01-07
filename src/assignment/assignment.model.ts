@@ -10,3 +10,9 @@ export interface Assignment {
   teacherid: number;
   marks: string;
 }
+export class AssignmentDTO {
+  _id: string;
+  studentid: string;
+  teacher: string;
+  marks: string;
+}

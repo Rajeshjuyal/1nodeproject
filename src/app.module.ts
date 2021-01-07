@@ -16,7 +16,7 @@ import { LibraryModule } from './library/library.module';
 import { SettingModule } from './setting/setting.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TopicModule } from './topic/topic.module';
-import { ChaptersModule } from './chapters/chapters.module';
+import { ChaptersModule } from './chapter/chapters.module';
 import { UnitModule } from './unit/unit.module';
 import { SyllabusModule } from './syllabus/syllabus.module';
 import { TestsModule } from './tests/tests.module';

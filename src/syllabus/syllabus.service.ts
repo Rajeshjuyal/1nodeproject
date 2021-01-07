@@ -12,8 +12,7 @@ export class SyllabusService {
     @InjectModel('Subject') private readonly subjectModel: Model<any>,
   ) {}
 
-  public async create(subject:SubjectDTO,syllabus: Syllabus) {
-    syllabus.subject=subject._id;
+  public async create(syllabus: Syllabus) {
     var syllabus1 = await this.syllabusModel.create(syllabus);
     console.log(syllabus1);
     return syllabus1;
@@ -23,12 +22,16 @@ export class SyllabusService {
     var syllabuss = await this.syllabusModel.find();
     return [...syllabuss];
 
-    return `This action returns all syllabus`;
+   
   }
 
   public async findOne(id: string) {
     var syllabuss = await this.syllabusModel.findById(id);
     return syllabuss;
+  }
+  public async findSubject(id: string) {
+    var syllabus = await this.syllabusModel.find({ subject: id });
+    return syllabus;
   }
 
   public async update(id: string, syllabusdata: Syllabus) {

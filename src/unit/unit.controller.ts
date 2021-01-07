@@ -20,6 +20,11 @@ export class UnitController {
   findOne(@Param('id') id: string) {
     return this.unitService.findOne(id);
   }
+  @Get('syllabus./id')
+  findbySyllabus(@Param('id')id:string){
+    return this.unitService.findSyllabus(id)
+  }
+
 
   @Put(':id')
   update(@Param('id') id: string, @Body() unitdata:Unit) {
