@@ -1,18 +1,18 @@
 import { Injectable, Inject, HttpStatus } from '@nestjs/common';
 import { Student } from './student.model';
-import { StudentModule } from './student.module';
+
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
-import { JwtService } from '@nestjs/jwt';
-import { AuthService } from '../utils/auth.service';
-import { CredentialsDTO } from './student.model';
+// import { JwtService } from '@nestjs/jwt';
+// import { AuthService } from '../utils/auth.service';
+
 
 @Injectable()
 export class StudentService {
   constructor(
     @InjectModel('Student') private readonly studentModel: Model<any>,
-    private jwtService: JwtService,
-    private authService: AuthService,
+    // private jwtService: JwtService,
+    // private authService: AuthService,
   ) {}
 
   public async create(student: Student) {
@@ -40,36 +40,5 @@ export class StudentService {
     var student = await this.studentModel.findById(id);
     student.remove();
     return student;
-  }
-  public async validateUserCredentials(credentials: CredentialsDTO) {
-    credentials.email = credentials.email.toLowerCase();
-    const student = await this.studentModel.find({
-      email: credentials.email,
-    });
-    if (!student) {
-      return {
-        response_code: HttpStatus.UNAUTHORIZED,
-        response_data: `Studnet with email ${credentials.email} is not registered`,
-      };
-    } else {
-      const paswordmatch = await this.authService.verifyPassword(
-        credentials.password,
-        student.password,
-      );
-      const body = {
-        token: null,
-        _id: null,
-      };
-      if (paswordmatch) {
-        body_id = student._id;
-        body.token = await this.authService.generateAccessToken(student._id);
-        return { reponsecode: HttpStatus.OK, response_data: body };
-      } else {
-        return {
-          response_code: HttpStatus.UNAUTHORIZED,
-          response_data: 'enetr a valid password',
-        };
-      }
-    }
   }
 }

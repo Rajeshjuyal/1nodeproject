@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
-import { Type } from 'class-transformer';
-import { IsEmail, IsNotEmpty } from 'class-validator';
+// import { Type } from 'class-transformer';
+// import { IsEmail, IsNotEmpty } from 'class-validator';
 export const StudentSchema = new mongoose.Schema({
   id: { type: String, required: true },
   Registration: { type: String, required: true },
@@ -23,12 +23,5 @@ export interface Student {
   Fathername: string;
   phoneno: string;
   email: string;
-  password: string;
-}
-export class CredentialsDTO {
-  @IsEmail()
-  @IsNotEmpty()
-  email: string;
-  @IsNotEmpty()
   password: string;
 }

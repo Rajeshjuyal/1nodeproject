@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { StudentService } from './student.service';
-import { Student,CredentialsDTO } from './student.model';
+import { Student } from './student.model';
 
 @Controller('student')
 export class StudentController {
@@ -38,8 +38,5 @@ export class StudentController {
   remove(@Param('id') id: string) {
     return this.studentService.remove(id);
   }
-  @Post('/login')
-  public validateUser(@Body() credentials: CredentialsDTO) {
-    return this.studentService.validateUserCredentials(credentials);
+  
   }
-}
