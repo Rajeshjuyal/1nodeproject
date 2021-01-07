@@ -5,15 +5,19 @@ export const SyllabusSchema = new mongoose.Schema({
     ref: 'Subject',
     required: true,
   },
-  id: { type: String, required: true },
-  
+  time: { type: String, required: true },
 
   board: { type: String, required: true },
 });
 
 export interface Syllabus {
-  subject: mongoose.ObjectId;
-  subjectid: string;
-  board:string;
- 
+  subject: string;
+  time: string;
+  board: string;
+}
+export class SyllabusDto {
+  _id: string;
+  subject: string;
+  time: string;
+  board: string;
 }

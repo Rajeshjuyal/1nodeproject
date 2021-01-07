@@ -12,9 +12,9 @@ export const TopicSchema = new mongoose.Schema({
 });
 
 export interface Topic {
-  chapter: mongoose.ObjectId;
+  chapter: string;
   id: string;
   name: string;
   videourl: string;
-  pdf:string;
+  pdf: string;
 }

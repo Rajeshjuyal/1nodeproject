@@ -11,7 +11,13 @@ export const ChaptersSchema = new mongoose.Schema({
 });
 
 export interface Chapters {
-  unit: mongoose.ObjectId;
+  unit: string;
+  name: string;
+  id: string;
+  duration: string;
+}
+export class ChapterDTO {
+  Unit: string;
   name: string;
   id: string;
   duration: string;

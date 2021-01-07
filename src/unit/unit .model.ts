@@ -12,8 +12,14 @@ export const UnitSchema = new mongoose.Schema({
 });
 
 export interface Unit {
-  syllabus: mongoose.ObjectId;
+  syllabus: string;
   id: string;
+  name: string;
+  duration: string;
+}
+export class UnitDTO {
+  _id: string;
+  syllabus: string;
   name: string;
   duration: string;
 }

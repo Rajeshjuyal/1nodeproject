@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Syllabus } from './syllabus.model';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { SubjectDTO } from 'src/subject/subject.model';
 
 @Injectable()
 export class SyllabusService {
@@ -11,7 +12,8 @@ export class SyllabusService {
     @InjectModel('Subject') private readonly subjectModel: Model<any>,
   ) {}
 
-  public async create(syllabus: Syllabus) {
+  public async create(subject:SubjectDTO,syllabus: Syllabus) {
+    syllabus.subject=subject._id;
     var syllabus1 = await this.syllabusModel.create(syllabus);
     console.log(syllabus1);
     return syllabus1;
