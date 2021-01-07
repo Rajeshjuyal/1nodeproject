@@ -6,14 +6,14 @@ export const UnitSchema = new mongoose.Schema({
     required: 'true',
   },
   id: { type: String, required: true },
-  unit_name: { type: String, required: true },
-  chapter_id: { type: String, required: true },
+  name: { type: String, required: true },
+
   duration: { type: String, required: true },
 });
 
 export interface Unit {
   syllabus: mongoose.ObjectId;
   id: string;
-  unit_name: string;
-  chapter_id: string;
+  name: string;
+  duration: string;
 }

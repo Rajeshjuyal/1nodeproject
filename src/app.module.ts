@@ -29,6 +29,7 @@ import { ParentModule } from './parent/parent.module';
 import { BannerModule } from './banner/banner.module';
 
 // import { ControllerModule } from './controller/controller.module';
+import { SchoolModule } from './school/school.module';
 @Module({
   imports: [
     MongooseModule.forRootAsync({
@@ -77,6 +78,8 @@ import { BannerModule } from './banner/banner.module';
     ParentModule,
 
     BannerModule,
+
+    SchoolModule,
   ],
   controllers: [AppController],
   providers: [AppService],
