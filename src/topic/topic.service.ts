@@ -6,7 +6,10 @@ import { Model } from 'mongoose';
 @Injectable()
 export class TopicService {
   topics: Topic[] = [];
-  constructor(@InjectModel('Topic') private readonly topicModel: Model<any>) {}
+  constructor(
+    @InjectModel('Topic') private readonly topicModel: Model<any>,
+    @InjectModel('Chapter') private readonly chapterModel: Model<any>,
+  ) {}
 
   public async create(topic: Topic) {
     var topic1 = await this.topicModel.create(topic);
