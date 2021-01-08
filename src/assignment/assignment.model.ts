@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 export const AssignmentSchema = new mongoose.Schema({
   studentid: { type: String, required: true },
-  teacherid: { type: Number, required: true },
+  teacherid: { type: String, required: true },
   marks: { type: String, required: true },
 });
 

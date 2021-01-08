@@ -11,34 +11,56 @@ export class TeacherService {
   teachers: Teacher[] = [];
   constructor(
     @InjectModel('Teacher') private readonly teacherModel: Model<any>,
+    @InjectModel('School') private readonly schoolModel: Model<any>,
     private jwtService: JwtService,
     private authService: AuthService,
   ) {}
   public async create(teacher: Teacher) {
     var teacher1 = await this.teacherModel.create(teacher);
-    console.log(teacher1);
-    return teacher1;
+    return {
+      response_code: HttpStatus.OK,
+      response_data: teacher1,
+    };
   }
 
   public async findAll() {
     var teachers = await this.teacherModel.find();
-    return [...teachers];
+    return {
+      response_code: HttpStatus.OK,
+      response_data: teachers,
+    };
   }
 
   public async findOne(id: string) {
     var teacher = await this.teacherModel.findById(id);
-    return teacher;
+    return {
+      response_code: HttpStatus.OK,
+      response_data: teacher,
+    };
+  }
+  public async findSchool(id: string) {
+    var teacher = await this.teacherModel.find({ school: id });
+    return {
+      response_code: HttpStatus.OK,
+      response_data: teacher,
+    };
   }
 
   public async update(id: string, teacherdata: Teacher) {
     var teacher = await this.teacherModel.findByIdAndUpdate(id, teacherdata);
-    return teacher;
+    return {
+      response_code: HttpStatus.OK,
+      response_data: teacher,
+    };
   }
 
   public async remove(id: string) {
     var teacher = await this.teacherModel.findByIdAndDelete(id);
     teacher.remove();
-    return teacher;
+    return {
+      response_code: HttpStatus.OK,
+      response_data: teacher,
+    };
   }
   public async validateUserCredentials(credentials: CredentialsDTO) {
     credentials.email = credentials.email.toLowerCase();

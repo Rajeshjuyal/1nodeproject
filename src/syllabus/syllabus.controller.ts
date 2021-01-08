@@ -29,7 +29,7 @@ export class SyllabusController {
     return this.syllabusService.findOne(id);
   }
   @Get('bysubject/:id')
-  findSubjectid(@Param('id') id: string) {
+  findbySubjectid(@Param('id') id: string) {
     return this.syllabusService.findSubject(id);
   }
 

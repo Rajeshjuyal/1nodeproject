@@ -7,9 +7,13 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from '../utils/jwt.strategy';
 import { AuthService } from '../utils/auth.service';
+import { SchoolSchema } from 'src/school/school.model';
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'Teacher', schema: TeacherSchema }]),
+    MongooseModule.forFeature([
+      { name: 'Teacher', schema: TeacherSchema },
+      { name: 'School', schema: SchoolSchema },
+    ]),
     JwtModule.register({
       secret: '123456sonali1234',
       signOptions: {

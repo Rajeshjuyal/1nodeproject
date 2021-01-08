@@ -28,7 +28,7 @@ export class TestsController {
   findOne(@Param('id') id: string) {
     return this.testsService.findOne(id);
   }
-  @Get('assignment/:id')
+  @Get('byassignment/:id')
   findassignment(@Param('id') id: string) {
     return this.testsService.findAssignment(id);
   }

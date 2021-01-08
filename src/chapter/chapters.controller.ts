@@ -28,7 +28,7 @@ export class ChaptersController {
   findOne(@Param('id') id: string) {
     return this.chaptersService.findOne(id);
   }
-  @Get('byunit./id')
+  @Get('byunit/:id')
   findunit(@Param('id') id: string) {
     return this.chaptersService.findUnit(id);
   }

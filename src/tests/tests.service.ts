@@ -28,7 +28,7 @@ export class TestsService {
     return testss;
   }
   public async findAssignment(id: string) {
-    var test = await this.testModel.find({ test, id });
+    var test = await this.testModel.find({ assignment: id });
     return test;
   }
 

@@ -2,6 +2,7 @@ import * as mongoose from 'mongoose';
 import { Type } from 'class-transformer';
 import { IsEmail, IsNotEmpty } from 'class-validator';
 export const TeacherSchema = new mongoose.Schema({
+  school: { type: mongoose.Schema.Types.ObjectId },
   t_id: { type: String, required: true },
   t_name: { type: String, required: true },
   t_email: { type: String, required: true },
@@ -16,6 +17,7 @@ export const TeacherSchema = new mongoose.Schema({
 });
 
 export interface Teacher {
+  school: string;
   id: string;
   name: string;
   designation: string;

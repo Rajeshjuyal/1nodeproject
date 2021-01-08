@@ -17,7 +17,7 @@ export interface Chapters {
   duration: string;
 }
 export class ChapterDTO {
-  Unit: string;
+  unit: string;
   name: string;
   id: string;
   duration: string;
