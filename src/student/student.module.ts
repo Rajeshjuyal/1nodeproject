@@ -3,14 +3,15 @@ import { StudentService } from './student.service';
 import { StudentController } from './student.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { StudentSchema } from './student.model';
-// import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from '../utils/jwt.strategy';
-import { PassportModule } from '@nestjs/passport';
-// import { AuthService } from '../utils/auth.service';
+
+import { SchoolSchema } from 'src/school/school.model';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'Student', schema: StudentSchema }]),
+    MongooseModule.forFeature([
+      { name: 'Student', schema: StudentSchema },
+      { name: 'School', schema: SchoolSchema },
+    ]),
   ],
   controllers: [StudentController],
   providers: [StudentService],

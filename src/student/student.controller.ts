@@ -28,6 +28,10 @@ export class StudentController {
   findOne(@Param('id') id: string) {
     return this.studentService.findOne(id);
   }
+  @Get('byschool/:id')
+  findbySchool(@Param('id') id: string) {
+    return this.studentService.findSchool(id);
+  }
 
   @Put(':id')
   update(@Param('id') id: string, @Body() studentdata: Student) {
@@ -38,5 +42,4 @@ export class StudentController {
   remove(@Param('id') id: string) {
     return this.studentService.remove(id);
   }
-  
-  }
+}

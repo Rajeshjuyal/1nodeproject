@@ -9,7 +9,7 @@ export class TestsService {
   testss: Test[] = [];
   constructor(
     @InjectModel('Test') private readonly testModel: Model<any>,
-    @InjectModel('Assignment') private readonly assignmentModel: Model<any>,
+    @InjectModel('Teacher') private readonly teacherModel: Model<any>,
   ) {}
 
   public async create(tests: Test) {
@@ -27,8 +27,8 @@ export class TestsService {
     var testss = await this.testModel.findById(id);
     return testss;
   }
-  public async findAssignment(id: string) {
-    var test = await this.testModel.find({ assignment: id });
+  public async findTeacher(id: string) {
+    var test = await this.testModel.find({ teacher: id });
     return test;
   }
 

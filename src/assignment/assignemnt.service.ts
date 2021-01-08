@@ -1,4 +1,4 @@
-import { Injectable, HttpStatus } from '@nestjs/common';
+import { Injectable, HttpStatus, assignMetadata } from '@nestjs/common';
 import { Assignment } from './assignment.model';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -30,6 +30,13 @@ export class AssignemntService {
     return {
       response_code: HttpStatus,
       response_data: assignments,
+    };
+  }
+  public async findSchool(id: string) {
+    var assignment = await this.assignmentModel.find({ school: id });
+    return {
+      response_code: HttpStatus,
+      response_data: assignment,
     };
   }
 

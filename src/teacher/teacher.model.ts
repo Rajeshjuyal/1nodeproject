@@ -2,17 +2,21 @@ import * as mongoose from 'mongoose';
 import { Type } from 'class-transformer';
 import { IsEmail, IsNotEmpty } from 'class-validator';
 export const TeacherSchema = new mongoose.Schema({
-  school: { type: mongoose.Schema.Types.ObjectId },
-  t_id: { type: String, required: true },
-  t_name: { type: String, required: true },
-  t_email: { type: String, required: true },
-  t_contact: { type: String, required: true },
-  t_designation: { type: String, required: false },
-  t_joiningdate: { type: String, required: false },
-  t_gender: { type: String, required: false },
-  t_jobrole: { type: String, required: false },
-  t_salary: { type: String, required: false },
-  t_password: { type: String, required: true },
+  school: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'School',
+    required: 'true',
+  },
+  id: { type: String, required: true },
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  contact: { type: String, required: true },
+  designation: { type: String, required: false },
+  joiningdate: { type: String, required: false },
+  gender: { type: String, required: false },
+  jobrole: { type: String, required: false },
+  salary: { type: String, required: false },
+  password: { type: String, required: true },
   role: { type: String, required: true },
 });
 
