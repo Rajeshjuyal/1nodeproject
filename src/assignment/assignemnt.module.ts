@@ -4,7 +4,7 @@ import { AssignemntController } from './assignemnt.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AssignmentSchema } from './assignment.model';
 import { TeacherSchema } from '../teacher/teacher.model';
-import { JwtStrategy } from '../utils/jwt.strategy';
+
 import { PassportModule } from '@nestjs/passport';
 import { AuthService } from '../utils/auth.service';
 import { JwtModule } from '@nestjs/jwt';
@@ -27,6 +27,6 @@ import { JwtModule } from '@nestjs/jwt';
   ],
   controllers: [AssignemntController],
   providers: [AssignemntService, AuthService],
-  exports: [JwtStrategy, PassportModule],
+  exports: [PassportModule],
 })
 export class AssignemntModule {}
