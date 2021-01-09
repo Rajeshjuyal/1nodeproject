@@ -24,7 +24,7 @@ import { JwtStrategy } from '../utils/jwt.strategy';
     }),
   ],
   controllers: [AttendenceController],
-  providers: [AttendenceService, AuthService, JwtStrategy],
+  providers: [AttendenceService, AuthService,],
   exports: [JwtModule, PassportModule],
 })
 export class AttendenceModule {}
