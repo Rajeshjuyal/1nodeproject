@@ -5,9 +5,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AssignmentSchema } from './assignment.model';
 import { TeacherSchema } from '../teacher/teacher.model';
 
-import { PassportModule } from '@nestjs/passport';
-import { AuthService } from '../utils/auth.service';
-import { JwtModule } from '@nestjs/jwt';
+// import { PassportModule } from '@nestjs/passport';
+// import { AuthService } from '../utils/auth.service';
+// import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -15,18 +15,17 @@ import { JwtModule } from '@nestjs/jwt';
       { name: 'Assignment', schema: AssignmentSchema },
       { name: 'Teacher', schema: TeacherSchema },
     ]),
-    JwtModule.register({
-      secret: '12345678923sonali',
-      signOptions: {
-        expiresIn: '4H',
-      },
-    }),
-    PassportModule.register({
-      defaultStrategy: 'jwt',
-    }),
+    // JwtModule.register({
+    //   secret: '12345678923sonali',
+    //   signOptions: {
+    //     expiresIn: '4H',
+    //   },
+    // }),
+    // PassportModule.register({
+    //   defaultStrategy: 'jwt',
+    // }),
   ],
   controllers: [AssignemntController],
-  providers: [AssignemntService, AuthService],
-  exports: [PassportModule],
+  providers: [AssignemntService],
 })
 export class AssignemntModule {}

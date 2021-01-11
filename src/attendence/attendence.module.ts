@@ -13,18 +13,18 @@ import { JwtStrategy } from '../utils/jwt.strategy';
     MongooseModule.forFeature([
       { name: 'Attendance', schema: AttendanceSchema },
     ]),
-    JwtModule.register({
-      secret: '12344567810sonali',
-      signOptions: {
-        expiresIn: '4h',
-      },
-    }),
-    PassportModule.register({
-      defaultStrategy: 'jwt',
-    }),
+    // JwtModule.register({
+    //   secret: '12344567810sonali',
+    //   signOptions: {
+    //     expiresIn: '4h',
+    //   },
+    // }),
+    // PassportModule.register({
+    //   defaultStrategy: 'jwt',
+    // }),
   ],
   controllers: [AttendenceController],
-  providers: [AttendenceService, AuthService,],
-  exports: [JwtModule, PassportModule],
+  providers: [AttendenceService],
+  // exports: [JwtModule, PassportModule],
 })
 export class AttendenceModule {}

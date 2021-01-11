@@ -12,19 +12,9 @@ import { JwtStrategy } from '../utils/jwt.strategy';
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: 'Class', schema: ClassSchema }]),
-    JwtModule.register({
-      secret: '1234566789sonali',
-      signOptions: {
-        expiresIn: '4h',
-      },
-    }),
-    PassportModule.register({
-      defaultStrategy: 'jwt',
-    }),
   ],
 
   controllers: [ClassController],
-  providers: [ClassService, AuthService, JwtStrategy],
-  exports: [JwtModule, PassportModule],
+  providers: [ClassService],
 })
 export class ClassModule {}
