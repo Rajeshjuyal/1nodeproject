@@ -4,10 +4,10 @@ export const TestSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Teacher',
     required: 'true',
-    test_name: String,
-    total_marks: String,
-    obtained_marks: String,
   },
+  test_name: String,
+  total_marks: String,
+  obtained_marks: String,
 });
 
 export interface Test {

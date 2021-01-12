@@ -16,11 +16,11 @@ export const QuestionSchema = new mongooose.Schema({
 
 export interface Question {
   test: string;
-  questions: 'string';
-  option1: 'string';
-  option2: 'string';
-  option3: 'string';
-  option4: 'string';
-  answer: 'string';
-  questionno: 'strig';
+  questions: string;
+  option1: string;
+  option2: string;
+  option3: string;
+  option4: string;
+  answer: string;
+  questionno: string;
 }
