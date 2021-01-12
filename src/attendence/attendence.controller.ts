@@ -29,7 +29,18 @@ export class AttendenceController {
   findOne(@Param('id') id: string) {
     return this.attendenceService.findOne(id);
   }
-
+  @Get('byClass/:id')
+  findClass(@Param('id') id: string) {
+    return this.attendenceService.findClass(id);
+  }
+  @Get('byTeacher/:id')
+  findbyTeacher(@Param('id') id: string) {
+    return this.attendenceService.findTeacher(id);
+  }
+  @Get('byStudent/:id')
+  findbyStudent(@Param('id') id: string) {
+    return this.attendenceService.findStudent(id);
+  }
   @Put(':id')
   update(@Param('id') id: string, @Body() attendencebody: Attendence) {
     return this.attendenceService.update(id, attendencebody);

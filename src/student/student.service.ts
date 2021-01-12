@@ -40,6 +40,13 @@ export class StudentService {
       response_data: student1,
     };
   }
+  public async findClass(id: string) {
+    var students = await this.studentModel.find({ class: id });
+    return {
+      response_code: HttpStatus.OK,
+      response_data: students,
+    };
+  }
 
   public async update(id: string, studentdata: Student) {
     var student = this.studentModel.findByIdAndUpdate(id, studentdata);

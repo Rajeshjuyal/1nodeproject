@@ -8,6 +8,11 @@ export const StudentSchema = new mongoose.Schema({
     ref: 'School',
     required: 'true',
   },
+  class: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'class',
+    required: 'true',
+  },
   id: { type: String, required: true },
   Registration: { type: String },
   DOB: { type: String, required: true },

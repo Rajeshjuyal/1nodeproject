@@ -7,7 +7,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from '../utils/jwt.strategy';
 import { AuthService } from '../utils/auth.service';
-import { SchoolSchema } from 'src/school/school.model';
+import { SchoolSchema } from '../school/school.model';
 @Module({
   imports: [
     MongooseModule.forFeature([

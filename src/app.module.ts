@@ -32,6 +32,7 @@ import { BannerModule } from './banner/banner.module';
 import { SchoolModule } from './school/school.module';
 import { QuestionModule } from './question/question.module';
 import { AssignmentQuestionModule } from './assignment.q/assignment-question.module';
+import { AssignedSubjectModule } from './assigned-subject/assigned-subject.module';
 
 @Module({
   imports: [
@@ -87,6 +88,8 @@ import { AssignmentQuestionModule } from './assignment.q/assignment-question.mod
     QuestionModule,
 
     AssignmentQuestionModule,
+
+    AssignedSubjectModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -5,7 +5,7 @@ export const TeacherSchema = new mongoose.Schema({
   school: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'School',
-    required: 'true',
+    required: true,
   },
   id: { type: String, required: true },
   name: { type: String, required: true },

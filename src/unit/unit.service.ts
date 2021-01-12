@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Unit } from './unit .model';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { SyllabusDto } from 'src/syllabus/syllabus.model';
+import { SyllabusDto } from '../syllabus/syllabus.model';
 
 @Injectable()
 export class UnitService {

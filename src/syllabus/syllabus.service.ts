@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Syllabus } from './syllabus.model';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { SubjectDTO } from 'src/subject/subject.model';
+// import { SubjectDTO } from 'src/subject/subject.model';
 
 @Injectable()
 export class SyllabusService {
