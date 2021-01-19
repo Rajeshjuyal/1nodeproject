@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TeacherModule } from './teacher/teacher.module';
+
 import { SubjectModule } from './subject/subject.module';
 
 import { StudentModule } from './student/student.module';
@@ -33,6 +33,11 @@ import { QuestionModule } from './question/question.module';
 import { AssignmentQuestionModule } from './assignment.q/assignment-question.module';
 import { AssignedSubjectModule } from './assigned-subject/assigned-subject.module';
 import { BuildrequestModule } from './buildrequest/buildrequest.module';
+import { Setting2Module } from './setting2/setting2.module';
+
+import { PeriodModule } from './period/period.module';
+import { SectionModule } from './section/section.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -46,7 +51,7 @@ import { BuildrequestModule } from './buildrequest/buildrequest.module';
       }),
     }),
     AttendenceModule,
-    TeacherModule,
+
     SubjectModule,
 
     StudentModule,
@@ -91,6 +96,14 @@ import { BuildrequestModule } from './buildrequest/buildrequest.module';
     AssignedSubjectModule,
 
     BuildrequestModule,
+
+    Setting2Module,
+
+    PeriodModule,
+
+    SectionModule,
+
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],

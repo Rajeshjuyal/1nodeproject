@@ -6,9 +6,7 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-  constructor(
-    @InjectModel('Teacher') private readonly teacherModel: Model<any>,
-  ) {
+  constructor(@InjectModel('User') private readonly userModel: Model<any>) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken,
       secretOrKey: '12345teescsfg',
@@ -17,9 +15,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
   async validate(payload) {
     const { _id } = payload;
-    const teacher = this.teacherModel.findOne({
+    const user = this.userModel.findOne({
       _id,
     });
-    return teacher;
+    return user;
   }
 }

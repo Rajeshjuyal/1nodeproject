@@ -5,11 +5,19 @@ export const BuildSchema = new mongoose.Schema({
   Contact: { type: String, required: true },
   Time: { type: String, required: true },
   Theme_color: { type: String, required: true },
+  Banner_img: { type: String, required: true },
+  headline: { type: String, required: true },
+  Appabout: { type: String, required: true },
+  Background_img: { type: String, required: true },
 });
-export interface Build{
+export interface Build {
   School_name: string;
   Logo: string;
   contact: string;
   Address: string;
   Theme_color: string;
+  Banner_img: string;
+  headline: string;
+  Appabout: string;
+  Backgreound_img: string;
 }

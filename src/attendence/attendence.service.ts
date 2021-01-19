@@ -9,7 +9,6 @@ export class AttendenceService {
     @InjectModel('Attendance') private readonly attendanceModel: Model<any>,
     @InjectModel('Class') private readonly classModel: Model<any>,
     @InjectModel('Student') private readonly studentModel: Model<any>,
-    @InjectModel('Teacher') private readonly teacherModel: Model<any>,
   ) {}
   public async create(attendence: Attendence) {
     console.log('In function');
@@ -44,13 +43,6 @@ export class AttendenceService {
   }
   public async findStudent(id: string) {
     var attendence = await this.attendanceModel.find({ student: id });
-    return {
-      response_code: HttpStatus.OK,
-      response_data: attendence,
-    };
-  }
-  public async findTeacher(id: string) {
-    var attendence = await this.attendanceModel.find({ teacher: id });
     return {
       response_code: HttpStatus.OK,
       response_data: attendence,

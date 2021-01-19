@@ -11,7 +11,7 @@ export class AssignedSubjectService {
     private readonly assignedSubjectModel: Model<any>,
     @InjectModel('Subject') private readonly subjectModel: Model<any>,
     @InjectModel('Class') private readonly classModel: Model<any>,
-    @InjectModel('Teacher') private readonly teacherModel: Model<any>,
+   
   ) {}
   public async create(AssignedSubjectdata: AssignedSubject) {
     var assignedsSubject = await this.assignedSubjectModel.create(
@@ -49,13 +49,7 @@ export class AssignedSubjectService {
       response_data: assignedSubject,
     };
   }
-  public async findTeacher(id: string) {
-    var assignedSubject = await this.assignedSubjectModel.find({ teacher: id });
-    return {
-      response_code: HttpStatus.OK,
-      response_data: assignedSubject,
-    };
-  }
+  
 
   public async update(id: string, AssignedSubjectdata: AssignedSubject) {
     var assignedsSubject = await this.assignedSubjectModel.findByIdAndUpdate(
@@ -64,7 +58,7 @@ export class AssignedSubjectService {
     );
     return {
       response_code: HttpStatus.OK,
-      response_data: this.assignedsSubject,
+      response_data: assignedsSubject,
     };
   }
 

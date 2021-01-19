@@ -33,10 +33,7 @@ export class AttendenceController {
   findClass(@Param('id') id: string) {
     return this.attendenceService.findClass(id);
   }
-  @Get('byTeacher/:id')
-  findbyTeacher(@Param('id') id: string) {
-    return this.attendenceService.findTeacher(id);
-  }
+
   @Get('byStudent/:id')
   findbyStudent(@Param('id') id: string) {
     return this.attendenceService.findStudent(id);

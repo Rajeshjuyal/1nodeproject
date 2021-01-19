@@ -7,10 +7,7 @@ import { InjectModel } from '@nestjs/mongoose';
 @Injectable()
 export class TestsService {
   testss: Test[] = [];
-  constructor(
-    @InjectModel('Test') private readonly testModel: Model<any>,
-    @InjectModel('Teacher') private readonly teacherModel: Model<any>,
-  ) {}
+  constructor(@InjectModel('Test') private readonly testModel: Model<any>) {}
 
   public async create(tests: Test) {
     var test1 = await this.testModel.create(tests);
@@ -26,10 +23,6 @@ export class TestsService {
   public async findOne(id: string) {
     var testss = await this.testModel.findById(id);
     return testss;
-  }
-  public async findTeacher(id: string) {
-    var test = await this.testModel.find({ teacher: id });
-    return test;
   }
 
   public async update(id: string, testdata: Test) {

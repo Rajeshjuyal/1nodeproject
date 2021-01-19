@@ -10,14 +10,10 @@ export const AttendanceSchema = new mongoose.Schema({
     ref: 'Student',
     required: true,
   },
-  teacher: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Teacher',
-    required: true,
-  },
+
   id: { type: String, required: true },
   date: { type: String, required: true },
-  teacherid: { type: String, required: true },
+  
   studentid: { type: String, required: true },
   periodno: { type: String, required: true },
   subjectid: { type: String, required: true },
@@ -28,7 +24,7 @@ export interface Attendence {
   attendence: string;
   id: string;
   date: string;
-  teacherid: string;
+ 
   studentid: string;
   periodno: string;
   subjectid: string;

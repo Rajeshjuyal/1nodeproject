@@ -7,7 +7,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { AuthService } from '../utils/auth.service';
 import { JwtStrategy } from '../utils/jwt.strategy';
-import { TeacherSchema } from '../teacher/teacher.model';
+
 import { ClassSchema } from '../class/class model';
 import { StudentSchema } from '../student/student.model';
 
@@ -15,7 +15,7 @@ import { StudentSchema } from '../student/student.model';
   imports: [
     MongooseModule.forFeature([
       { name: 'Attendance', schema: AttendanceSchema },
-      { name: 'Teacher', schema: TeacherSchema },
+     
       { name: 'Class', schema: ClassSchema },
       { name: 'Student', schema: StudentSchema },
     ]),

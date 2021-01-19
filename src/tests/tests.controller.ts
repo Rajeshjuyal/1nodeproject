@@ -28,10 +28,7 @@ export class TestsController {
   findOne(@Param('id') id: string) {
     return this.testsService.findOne(id);
   }
-  @Get('byteacher/:id')
-  findteacher(@Param('id') id: string) {
-    return this.testsService.findTeacher(id);
-  }
+  
 
   @Put(':id')
   update(@Param('id') id: string, @Body() testdata: Test) {

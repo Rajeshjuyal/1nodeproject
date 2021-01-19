@@ -11,11 +11,7 @@ export const AssignedSubjectSchema = new mongoose.Schema({
     ref: 'Class',
     required: true,
   },
-  // teacher: {
-  //   types: mongoose.Schema.Types.ObjectId,
-  //   ref: 'Teacher',
-  //   required: true,
-  // },
+  
 });
 export interface AssignedSubject {
   subject: string;
