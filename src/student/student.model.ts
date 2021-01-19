@@ -3,14 +3,14 @@ import { SchoolSchema } from 'src/school/school.model';
 // import { Type } from 'class-transformer';
 // import { IsEmail, IsNotEmpty } from 'class-validator';
 export const StudentSchema = new mongoose.Schema({
-  school: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'School',
+    ref: 'User',
     required: 'true',
   },
-  class: {
+  section: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'class',
+    ref: 'Section',
     required: 'true',
   },
   id: { type: String, required: true },
@@ -25,7 +25,8 @@ export const StudentSchema = new mongoose.Schema({
 });
 
 export interface Student {
-  school: string;
+  user: string;
+  section: string;
   id: string;
   Registration: string;
   DOB: string;

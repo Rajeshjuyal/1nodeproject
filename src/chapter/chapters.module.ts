@@ -15,18 +15,18 @@ import { JwtStrategy } from '../utils/jwt.strategy';
       { name: 'Chapters', schema: ChaptersSchema },
       { name: 'Unit', schema: UnitSchema },
     ]),
-    // JwtModule.register({
-    //   secret: '123456789sonali',
-    //   signOptions: {
-    //     expiresIn: '4h',
-    //   },
-    // }),
-    // PassportModule.register({
-    //   defaultStrategy: 'jwt',
-    // }),
+    JwtModule.register({
+      secret: '123456789sonali',
+      signOptions: {
+        expiresIn: '4h',
+      },
+    }),
+    PassportModule.register({
+      defaultStrategy: 'jwt',
+    }),
   ],
   controllers: [ChaptersController],
   providers: [ChaptersService],
-  // exports: [JwtModule, PassportModule],
+  exports: [JwtModule, PassportModule],
 })
 export class ChaptersModule {}

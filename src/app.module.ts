@@ -39,6 +39,7 @@ import { PeriodModule } from './period/period.module';
 import { SectionModule } from './section/section.module';
 import { UserModule } from './user/user.module';
 import { TeacherModule } from './teacher/teacher.module';
+import { CategoryModule } from './category/category.module';
 
 @Module({
   imports: [
@@ -107,6 +108,8 @@ import { TeacherModule } from './teacher/teacher.module';
     UserModule,
 
     TeacherModule,
+
+    CategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

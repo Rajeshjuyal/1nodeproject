@@ -7,8 +7,8 @@ export class AttendenceService {
   attendences: Attendence[] = [];
   constructor(
     @InjectModel('Attendance') private readonly attendanceModel: Model<any>,
-    @InjectModel('Class') private readonly classModel: Model<any>,
-    @InjectModel('Student') private readonly studentModel: Model<any>,
+    @InjectModel('Period') private readonly periodModel: Model<any>,
+  
   ) {}
   public async create(attendence: Attendence) {
     console.log('In function');
@@ -34,21 +34,14 @@ export class AttendenceService {
       response_data: attendence,
     };
   }
-  public async findClass(id: string) {
-    var attendence = await this.attendanceModel.find({ class: id });
+  public async findPeriod(id: string) {
+    var attendence = await this.attendanceModel.find({ period: id });
     return {
       response_code: HttpStatus.OK,
       response_data: attendence,
     };
   }
-  public async findStudent(id: string) {
-    var attendence = await this.attendanceModel.find({ student: id });
-    return {
-      response_code: HttpStatus.OK,
-      response_data: attendence,
-    };
-  }
-
+  
   public async update(id: string, attendencedata: Attendence) {
     var attendence = await this.attendanceModel.findByIdAndUpdate(
       id,

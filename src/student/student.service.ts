@@ -9,8 +9,9 @@ import { InjectModel } from '@nestjs/mongoose';
 @Injectable()
 export class StudentService {
   constructor(
-    @InjectModel('Student') private readonly studentModel: Model<any>, // private jwtService: JwtService, // private authService: AuthService,
-  ) {}
+    @InjectModel('Student') private readonly studentModel: Model<any>,
+      @InjectModel('User') private readonly userModel: Model<any>,
+      @InjectModel('Section') private readonly sectionModel:Model<any>,){}
 
   public async create(student: Student) {
     var student1 = await this.studentModel.create(student);
@@ -33,15 +34,15 @@ export class StudentService {
     var student = await this.studentModel.findById(id);
     return student;
   }
-  public async findSchool(id: string) {
-    var student1 = await this.studentModel.find({ school: id });
+  public async findUser(id: string) {
+    var student1 = await this.studentModel.find({ user: id });
     return {
       response_code: HttpStatus.OK,
       response_data: student1,
     };
   }
-  public async findClass(id: string) {
-    var students = await this.studentModel.find({ class: id });
+  public async findSection(id: string) {
+    var students = await this.studentModel.find({ section: id });
     return {
       response_code: HttpStatus.OK,
       response_data: students,

@@ -28,9 +28,13 @@ export class StudentController {
   findOne(@Param('id') id: string) {
     return this.studentService.findOne(id);
   }
-  @Get('byschool/:id')
-  findbySchool(@Param('id') id: string) {
-    return this.studentService.findSchool(id);
+  @Get('byuser/:id')
+  findbyuser(@Param('id') id: string) {
+    return this.studentService.findUser(id);
+  }
+  @Get('bysection/:id')
+  findbySection(@Param('id') id: string) {
+    return this.studentService.findSection(id);
   }
 
   @Put(':id')

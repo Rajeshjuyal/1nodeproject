@@ -11,17 +11,17 @@ import { JwtStrategy } from '../utils/jwt.strategy';
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: 'Banner', schema: BannerSchema }]),
-    // JwtModule.register({
-    //   secret: '123456sonaliraju',
-    //   signOptions: {
-    //     expiresIn: '4h',
-    //   },
-    // }),
-    // PassportModule.register({ defaultStrategy: 'jwt' }),
+    JwtModule.register({
+      secret: '123456sonaliraju',
+      signOptions: {
+        expiresIn: '4h',
+      },
+    }),
+    PassportModule.register({ defaultStrategy: 'jwt' }),
   ],
 
   controllers: [BannerController],
   providers: [BannerService],
-  //   exports: [JwtModule, PassportModule],
+  exports: [JwtModule, PassportModule],
 })
 export class BannerModule {}

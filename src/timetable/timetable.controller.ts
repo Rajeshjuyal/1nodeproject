@@ -31,10 +31,10 @@ export class TimetableController {
   findbySchool(@Param('id') id: string) {
     return this.timetableService.findSchool(id);
   }
- @Get('bySection/:id')
- findbySection(@Param('id')id:string){
-   return this.timetableService.findSchool(id);
- }
+//  @Get('bySection/:id')
+//  findbySection(@Param('id')id:string){
+//    return this.timetableService.findSchool(id);
+//  }
   @Put(':id')
   update(@Param('id') id: string, @Body() timetabledata: Timetable) {
     return this.timetableService.update(id, timetabledata);

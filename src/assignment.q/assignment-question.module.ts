@@ -9,7 +9,7 @@ import { AssignmentSchema } from '../assignment/assignment.model';
   imports: [
     MongooseModule.forFeature([
       { name: 'AssignmentQuestion', schema: AssignmentQuestionSchema },
-      // { name: 'Assignment', schema: AssignmentSchema },
+      { name: 'Assignment', schema: AssignmentSchema },
     ]),
   ],
   controllers: [AssignmentQuestionController],

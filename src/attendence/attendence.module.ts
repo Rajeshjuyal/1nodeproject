@@ -10,27 +10,20 @@ import { JwtStrategy } from '../utils/jwt.strategy';
 
 import { ClassSchema } from '../class/class model';
 import { StudentSchema } from '../student/student.model';
+import { PeriodSchema } from 'src/period/period.model';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: 'Attendance', schema: AttendanceSchema },
      
-      { name: 'Class', schema: ClassSchema },
-      { name: 'Student', schema: StudentSchema },
+      { name: 'Period', schema: PeriodSchema },
+      
     ]),
-    // JwtModule.register({
-    //   secret: '12344567810sonali',
-    //   signOptions: {
-    //     expiresIn: '4h',
-    //   },
-    // }),
-    // PassportModule.register({
-    //   defaultStrategy: 'jwt',
-    // }),
+    
   ],
   controllers: [AttendenceController],
   providers: [AttendenceService],
-  // exports: [JwtModule, PassportModule],
+  
 })
 export class AttendenceModule {}

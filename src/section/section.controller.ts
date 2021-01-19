@@ -9,14 +9,14 @@ import {
 } from '@nestjs/common';
 import { SectionService } from './section.service';
 // import { Period } from '../period/period.model';
-import { Section } from './sectiom.model';
+import { Sectio } from './sectiom.model';
 
 @Controller('section')
 export class SectionController {
   constructor(private readonly sectionService: SectionService) {}
 
   @Post()
-  create(@Body() data: Section) {
+  create(@Body() data: Sectio) {
     return this.sectionService.create(data);
   }
 
@@ -34,7 +34,7 @@ export class SectionController {
     return this.sectionService.findClass(id);
   }
   @Put(':id')
-  update(@Param('id') id: string, @Body() data: Section) {
+  update(@Param('id') id: string, @Body() data: Sectio) {
     return this.sectionService.update(id, data);
   }
 

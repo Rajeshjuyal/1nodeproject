@@ -9,7 +9,7 @@ export class AssignmentQuestionService {
   constructor(
     @InjectModel('AssignmentQuestion')
     private readonly assignmentquestionModel: Model<any>,
-    // @InjectModel('Assignment') private readonly assignmentModel: Model<any>,
+    @InjectModel('Assignment') private readonly assignmentModel: Model<any>,
   ) {}
   public async create(Questiondata: AssignmentQuestion) {
     var Assignmentquestions1 = await this.assignmentquestionModel.create(

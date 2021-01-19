@@ -10,7 +10,7 @@ export class AssignedSubjectService {
     @InjectModel('AssignedSubject')
     private readonly assignedSubjectModel: Model<any>,
     @InjectModel('Subject') private readonly subjectModel: Model<any>,
-    @InjectModel('Section') private readonly classModel: Model<any>,
+    @InjectModel('Section') private readonly sectionModel: Model<any>,
   ) {}
   public async create(AssignedSubjectdata: AssignedSubject) {
     var assignedsSubject = await this.assignedSubjectModel.create(

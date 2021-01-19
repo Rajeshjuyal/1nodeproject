@@ -3,9 +3,8 @@ import { TeacherService } from './teacher.service';
 import { TeacherController } from './teacher.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TeacherSchema } from './teacher.model';
-import { UserSchema } from 'src/user/user .model';
-import { SectionSchema } from 'src/section/sectiom.model';
-import { SchoolSchema } from 'src/school/school.model';
+import { UserSchema } from '../user/user.model';
+import { SchoolSchema } from '../school/school.model';
 
 @Module({
   imports: [

@@ -28,7 +28,10 @@ export class BuildrequestController {
   findOne(@Param('id') id: string) {
     return this.buildrequestService.findOne(id);
   }
-
+  @Get('byUser/:id')
+  findUser(@Param('id') id: string) {
+    return this.buildrequestService.findUser(id);
+  }
   @Put(':id')
   update(@Param('id') id: string, @Body() builddata: Build) {
     return this.buildrequestService.update(id, builddata);

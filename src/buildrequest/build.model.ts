@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose';
 export const BuildSchema = new mongoose.Schema({
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   School_name: { type: String, required: true },
   Logo: { type: String, required: true },
   Contact: { type: String, required: true },
@@ -11,6 +12,7 @@ export const BuildSchema = new mongoose.Schema({
   Background_img: { type: String, required: true },
 });
 export interface Build {
+  user: string;
   School_name: string;
   Logo: string;
   contact: string;
