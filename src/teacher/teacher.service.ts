@@ -84,7 +84,9 @@ export class TeacherService {
       if (passwordMatch) {
         body._id = teacher._id;
         body.token = await this.authService.generateAccessToken(teacher._id);
-        return { response_code: HttpStatus.OK, response_data: body };
+        return { 
+          response_code: HttpStatus.OK, 
+          response_data: body };
       } else {
         return {
           response_code: HttpStatus.UNAUTHORIZED,

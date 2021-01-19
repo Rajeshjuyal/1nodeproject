@@ -8,6 +8,7 @@ export const TestSchema = new mongoose.Schema({
   test_name: String,
   total_marks: String,
   obtained_marks: String,
+  
 });
 
 export interface Test {

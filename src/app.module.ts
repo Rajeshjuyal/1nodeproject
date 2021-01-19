@@ -32,6 +32,7 @@ import { SchoolModule } from './school/school.module';
 import { QuestionModule } from './question/question.module';
 import { AssignmentQuestionModule } from './assignment.q/assignment-question.module';
 import { AssignedSubjectModule } from './assigned-subject/assigned-subject.module';
+import { BuildrequestModule } from './buildrequest/buildrequest.module';
 
 @Module({
   imports: [
@@ -88,6 +89,8 @@ import { AssignedSubjectModule } from './assigned-subject/assigned-subject.modul
     AssignmentQuestionModule,
 
     AssignedSubjectModule,
+
+    BuildrequestModule,
   ],
   controllers: [AppController],
   providers: [AppService],
