@@ -32,6 +32,27 @@ export class PeriodService {
       response_data: period3,
     };
   }
+  public async findSubject(id: string) {
+    var period4 = await this.periodModel.find({ subject: id });
+    return {
+      response_code: HttpStatus.OK,
+      response_data: period4,
+    };
+  }
+  public async findtime_table(id: string) {
+    var period5 = await this.periodModel.find({ time_table: id });
+    return {
+      response_code: HttpStatus.OK,
+      response_data: period5,
+    };
+  }
+  public async findSection(id: string) {
+    var period6 = await this.periodModel.find({ section: id });
+    return {
+      response_code: HttpStatus.OK,
+      response_data: period6,
+    };
+  }
 
   public async update(id: string, data: Period) {
     var period4 = await this.periodModel.findByIdAndUpdate(id, data);

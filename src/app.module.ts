@@ -38,6 +38,7 @@ import { Setting2Module } from './setting2/setting2.module';
 import { PeriodModule } from './period/period.module';
 import { SectionModule } from './section/section.module';
 import { UserModule } from './user/user.module';
+import { TeacherModule } from './teacher/teacher.module';
 
 @Module({
   imports: [
@@ -104,6 +105,8 @@ import { UserModule } from './user/user.module';
     SectionModule,
 
     UserModule,
+
+    TeacherModule,
   ],
   controllers: [AppController],
   providers: [AppService],

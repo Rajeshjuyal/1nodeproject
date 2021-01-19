@@ -6,6 +6,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AssignedSubjectSchema } from './assigned-subject.model';
 import { SubjectSchema } from '../subject/subject.model';
 import { ClassSchema } from '../class/class model';
+import { SectionSchema } from 'src/section/sectiom.model';
+import { TeacherSchema } from 'src/teacher/teacher.model';
 
 
 @Module({
@@ -13,7 +15,8 @@ import { ClassSchema } from '../class/class model';
     MongooseModule.forFeature([
       { name: 'AssignedSubject', schema: AssignedSubjectSchema },
       { name: 'Subject', schema: SubjectSchema },
-      { name: 'Class', schema: ClassSchema },
+      { name: 'Section', schema: SectionSchema},
+      {name:'Teacher',schema:TeacherSchema}
      
     ]),
   ],

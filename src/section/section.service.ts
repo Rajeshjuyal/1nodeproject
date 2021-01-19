@@ -1,5 +1,5 @@
 import { Injectable, HttpStatus } from '@nestjs/common';
-import { Period } from 'src/period/period.model';
+// import { Period } from 'src/period/period.model';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Section } from './sectiom.model';
@@ -9,44 +9,52 @@ export class SectionService {
   section: Section[] = [];
   constructor(
     @InjectModel('Section') private readonly sectionModel: Model<any>,
+    @InjectModel('Class') private readonly classModel: Model<any>,
   ) {}
-  public async create(data: Period) {
-    var periods7 = await this.sectionModel.create(data);
+  public async create(data: Section) {
+    var sections7 = await this.sectionModel.create(data);
     return {
       response_code: HttpStatus.OK,
-      response_data: periods7,
+      response_data: sections7,
     };
   }
 
   public async findAll() {
-    var periods8 = await this.sectionModel.find();
+    var section8 = await this.sectionModel.find();
     return {
       response_code: HttpStatus.OK,
-      response_data: periods8,
+      response_data: section8,
     };
   }
 
   public async findOne(id: string) {
-    var period9 = await this.sectionModel.findById(id);
+    var section9 = await this.sectionModel.findById(id);
     return {
       response_code: HttpStatus.OK,
-      response_data: period9,
+      response_data: section9,
+    };
+  }
+  public async findClass(id: string) {
+    var section10 = await this.sectionModel.find({ class: id });
+    return {
+      response_code: HttpStatus.OK,
+      response_data: section10,
     };
   }
 
-  public async update(id: string, data: Period) {
-    var period11 = await this.sectionModel.findByIdAndUpdate(id, data);
+  public async update(id: string, data: Section) {
+    var section11 = await this.sectionModel.findByIdAndUpdate(id, data);
     return {
       response_code: HttpStatus.OK,
-      response_data: period11,
+      response_data: section11,
     };
   }
 
   public async remove(id: string) {
-    var period12 = await this.sectionModel.findByIdAndDelete(id);
+    var section12 = await this.sectionModel.findByIdAndDelete(id);
     return {
       response_code: HttpStatus.OK,
-      response_data: period12,
+      response_data: section12,
     };
   }
 }

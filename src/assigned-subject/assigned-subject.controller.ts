@@ -34,9 +34,13 @@ export class AssignedSubjectController {
   findbySubject(@Param('id') id: string) {
     return this.assignedSubjectService.findSubject(id);
   }
-  @Get('byClass/:id')
-  findbyClass(@Param('id') id: string) {
-    return this.assignedSubjectService.findClass(id);
+  @Get('bySection/:id')
+  findbySection(@Param('id') id: string) {
+    return this.assignedSubjectService.findSection(id);
+  }
+  @Get('byTeacher/:id')
+  findbyTeacher(@Param('id') id: string) {
+    return this.assignedSubjectService.findTeacher(id);
   }
 
   @Put(':id')
